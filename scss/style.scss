@@ -1,0 +1,749 @@
+@charset "utf-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #555555;
+	font-family: "futura-pt", Arial, sans-serif;
+}
+
+$sViewport: 320px;
+$mViewport: 600px;
+$lViewport: 900px;
+$xlViewport: 1200px;
+
+.top {
+    height: 85px;
+    width: 100%;
+    background-color: #FFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: height 0.5s;
+
+    @media (min-width: $sViewport) {
+        height: 85px;
+    }
+
+
+    @media (min-width: $xlViewport) {
+        height: 170px;
+    }
+}
+
+.topCollapsed {
+	@media (min-width: $xlViewport) {
+        height: 85px;
+    }
+}
+
+.logo {
+    border: 1px solid #999999;
+    background-image: url(../img/logo.svg);
+    background-size: 80%;	
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: width 0.5s, height 0.5s, margin-left 0.5s; 
+
+
+    @media (min-width: $sViewport) {
+        width: 60px;
+		height: 60px;
+        margin-left: 10px;
+    }
+
+    @media (min-width: $xlViewport) {
+        width: 95px;
+        height: 95px;
+        margin-left: 35px;
+    }
+}
+
+.logoCollapsed {
+
+	@media (min-width: $xlViewport) {
+		width: 60px;
+		height: 60px;
+	}
+}
+
+.socialIcons {
+		display: none;
+   
+    @media (min-width: $xlViewport) {
+        display: inline;
+        margin-right: 35px;
+		font-size: 20px;
+
+        .fa {
+			margin-left: 15px;
+		}		
+	}
+} 
+
+.hamburgerMenu {
+	width: 90px;
+	height: 35px;
+	border: 1px solid #999999;
+	line-height: 35px;
+	text-align: center;	
+	font-weight: bold;
+	cursor: pointer;
+
+    @media (min-width: $sViewport) {
+        margin-right: 10px;
+    }
+
+    @media (min-width: $xlViewport) {
+        display: none;
+    }
+
+    @media (min-width: $mViewport) {
+        margin-right: 15px;
+    }
+}   
+
+.hamburgerMenuOpen {
+	width: 100%;
+	height: 500px;
+	background: #FFFFFF;
+	border-top: 1px solid #999999;
+	display: none;
+}
+
+.menuItem {
+	margin-top: 30px;
+	text-align: center;
+	font-size: 23px;
+	font-weight: bold;
+	line-height: 40px;
+	text-transform: uppercase;
+	margin-left: 10px;
+	color: #161715;
+	cursor: pointer;
+}
+
+.smallLineMenu {
+	width: 300px;
+	height: 1px;
+	background-color: #999999;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+
+// POCZĄTEK SEKCJI Z CONTENTEM -------------------------------------------------------------------//
+
+
+@keyframes onHoverIn { 
+    0%{background-position:0%}
+   	100%{background-position:100%}
+}
+
+@keyframes onHoverOut { 
+    0%{background-position:100%}
+   	100%{background-position:0%}
+}
+
+.coverContainer {
+
+    @media (min-width: $sViewport) {
+        width: 100%;
+		display: block;
+    }
+
+    @media (min-width: $xlViewport) {
+        width: 100%;
+        height: auto;
+        display: flex;
+        flex-wrap: nowrap;
+    }
+}
+
+.title {
+	font-size: 30px;
+	font-weight: bold;
+}
+
+.smallLine {
+	width: 60px;
+	height: 1px;
+	background-color: #5d4157;
+	margin: 0 auto;
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+.description {
+	font-size: 18px;
+	color: #babbba;
+}
+ 
+.cover {
+	width: 100%;
+	height: 35vh;
+	background: linear-gradient(135deg, #161715 0%,#161715 35%,#9cb4c4 60%,#eef1aa 100%,#eef1aa 100%);
+	background-size: 300% 300%;
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+	color: white;
+	text-align: center;
+	margin-bottom: 1px;
+	transition: height 0.5s ease-in-out;
+	
+	cursor: pointer;
+
+
+    @media (min-width: $xlViewport) {
+        width: calc(25% - 1px);
+		height: calc(100vh - 170px);
+		margin-left: 1px;
+		transition: width 0.5s ease-in-out;
+
+        .description {
+            display: inline-block;
+            width: 300px;
+	    }	
+    }
+}
+
+.coverRolloverOut {
+	animation-name: onHoverOut;
+	animation-duration: 0.3s;
+}  
+
+.coverRollover:hover {
+	animation-name: onHoverIn;
+	background-position: 100%;
+
+     @media (min-width: $sViewport) {
+        height:  calc(50vh - 60px);
+    }
+
+     @media (min-width: $xlViewport) {
+        width: 30%;
+		height: calc(100vh - 170px);
+		animation-name: onHoverIn;
+		background-position: 100%;
+
+		.description {
+			color: #161715;
+			display: inline-block;
+			width: 300px;
+			transition: color 0.5s ease-in-out;
+		}
+    }
+
+	.title {
+		color: #161715;
+		transition: color 0.5s ease-in-out;
+	}
+
+	.description {
+		color: #161715;
+		transition: color 0.5s ease-in-out;
+	}
+
+	.smallLine {
+		background-color: #161715;
+		transition: color 0.5s ease-in-out;
+	}  
+}
+
+.coverMax {	
+	background: linear-gradient(135deg, #9cb4c4 0%,#fdffcf 100%);
+	position: relative;
+	display: block;
+	cursor: default;
+
+	@media (min-width: $sViewport) {
+		width: 100%;
+ 	    height: calc(100vh - 24vh - 85px);
+		overflow-y: scroll;
+	}
+	
+    @media (min-width: $xlViewport) {
+        width: 85%;
+        height: auto;
+		overflow: hidden;
+    }
+
+	.title {
+		color: #161715;
+
+		@media (min-width: $sViewport) {
+			display: block;
+			padding-top: 0.6em;
+			top: 2em;
+		}
+
+		@media (min-width: $xlViewport) {
+			position: absolute;
+			transform-origin: 0 0;
+			transform: rotate(90deg);
+			font-size: 30px;
+			top: 2em;
+			left: 2em;
+			padding-top: 0;
+		}
+	}
+
+	.smallLine {
+		display: none;
+	}
+
+	.description {
+		display: none;
+	}
+}
+
+.coverMax::-webkit-scrollbar { 
+    display: none; 
+}
+
+.coverMin {
+    display: block;	
+	position: relative;
+	width: 100%;
+	height: 8vh;
+	color: #333;
+	background: #161715;
+
+    @media (min-width: $xlViewport) {
+		display: block;
+		float: left;
+		width: 5%;
+		min-height: calc(100vh - 85px);
+		height: auto;
+    }
+
+	.description {
+			display: none;
+	}
+
+	.smallLine {
+			display: none;
+	}
+
+	.title {
+		display: block;
+		color: #FFF;
+		transform-origin: 50% 50% 0;
+
+		@media (min-width: $xlViewport) {
+			position: absolute;
+			transform-origin: 0 0;
+			transform: rotate(90deg);		
+			text-align: left;
+			top: 2em;
+			left: 2em;
+			font-size: 30px;	
+		}
+
+		@media (min-width: $sViewport) {
+			position: relative;
+			bottom: -0.5em;
+		}
+	}
+}
+
+
+/* STYLE DLA PROJEKTÓW ------------------------------------------------------------------------------ */
+
+
+.hidden {
+	display: none;
+}
+
+.show {
+	display: block;
+}
+
+.mainContainer {
+
+	@media (min-width: $sViewport) {
+		margin-left: 3em;
+		margin-right: 3em;
+		margin-top: 3em;
+	}
+
+	@media (min-width: $xlViewport) {
+		margin-left: 6em;
+		margin-right: 6em;
+		margin-top: 3em;
+	}
+}
+
+.topContentContainer {
+    width: 100%;
+    margin-bottom: 3em;
+
+	@media (min-width: $sViewport) {
+		display: none;
+	}
+
+	@media (min-width: $xlViewport) {
+		display: flex;
+		justify-content: space-between;
+    	align-content: center;
+	}
+}
+
+.sectionTitle {
+    display: block;
+    font-size: 35px;
+    color: #161715;
+    text-align: left;
+}
+
+.contactBtn {
+	font-family: "futura-pt", Arial, sans-serif;
+    display: block;
+    border: none;
+    width: 300px;
+    height: 60px;
+    font-size: 18px;
+    font-weight: 800;
+    background: #FFF;
+    box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    color: #161715;
+    cursor: pointer;
+}
+
+.sectionUnderline {
+    width: 12em;
+    height: 2px;
+    background: #161715;
+    margin-top: 1em;
+}
+
+.projectContainer {
+    text-align: center;
+}
+
+.projectTitle {
+    color: #161715;
+	margin-bottom: 1em;
+	
+
+	@media (min-width: $sViewport) {
+		font-size: 40px;
+		text-align: center;
+		margin-top: -1em;    		
+	}
+
+	@media (min-width: $lViewport) {
+		font-size: 50px;
+	}
+
+	@media (min-width: $xlViewport) {
+		font-size: 60px;
+    	text-align: left;
+		margin-top: 0;
+	}
+}
+
+.bottomContentContainer {
+
+	@media (min-width: $xlViewport) {
+		width: 100%;
+		display: flex;
+		margin-bottom: 4em;
+	}
+}
+
+.viewBtn {
+	font-family: "futura-pt", Arial, sans-serif;
+    width: 150px;
+    height: 40px;
+    border: 1px solid #161715;
+    color: #161715;
+    background: none;
+    font-size: 18px;
+    font-weight: 800;
+	text-align: center;
+	cursor: pointer;
+
+	@media (min-width: $sViewport) {
+		display: inline;
+		margin-bottom: 3em;
+	}
+
+	@media (min-width: $xlViewport) {
+		display: block;
+		 margin-bottom: 1em;
+	}
+}
+
+.projectDescription {
+    display: block;    
+    text-align: left;
+    width: 90%;
+    font-size: 18px;
+    line-height: 24px;
+    color: #161715;
+    font-family: "nimbus-sans";
+	margin-bottom: 3em;
+
+	@media (min-width: $sViewport) {	
+		display: block;
+		width: 100%;
+	}
+
+	@media (min-width: $xlViewport) {	
+		display: block;
+		margin-bottom: 1em;
+	}
+}
+
+.projectDescriptionLeft {
+
+	@media (min-width: $sViewport) {	
+		width: 100%;
+    	margin-right: 1em;;
+	}
+
+	@media (min-width: $xlViewport) {	
+		width: 30%;
+    	margin-right: 1em;;
+	}   
+}
+
+.projectInfo {
+    display: block;
+    width: 100%;     
+    font-size: 18px;
+    line-height: 24px;
+    text-align: left;
+        
+    td {
+        font-family: "nimbus-sans";
+         color: #161715;
+    }
+
+	@media (min-width: $sViewport) {
+		display: none;
+	}
+
+	@media (min-width: $xlViewport) {
+		display: block;
+	}
+}
+
+.projectViewer {
+
+	@media (min-width: $sViewport) {
+		height: auto; 
+		margin-bottom: 6em;
+		overflow-y: hidden;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	@media (min-width: $xlViewport) {
+		height: 80vh;
+        overflow-y: scroll;
+        cursor: s-resize;
+        margin-bottom: 6em;
+
+        img {
+            width: 100%;
+        }
+	}
+}
+
+.projectViewer::-webkit-scrollbar {
+	display: none;
+}
+
+.projectUnderline {
+	width: 100%;
+	height: 2px;
+	background-color: #161715;
+	margin-bottom: 3em;
+}
+
+
+/* STYLE DLA STRON STATYCZNYCH -------------------------------------------------------------*/
+
+
+.twoColumns {
+	display: flex;
+	justify-content: space-between;
+}
+
+.twoColumnsLeft {
+	width: 55%;
+}
+
+.twoColumnsRight {
+	width: 35%;
+}
+
+.underlineLarge {
+	height: 2px;
+	width: 100%;
+	background: #161715;
+}
+
+.underlineSmall {
+	height: 2px;
+	width: 80%;
+	background: #161715;
+}
+
+
+.text {
+	margin-top: 1.5em;
+	margin-bottom: 3em;
+	font-family: "nimbus-sans";
+	font-size: 18px;
+	line-height: 24px;
+	text-align: left;
+	color: #161715;
+}
+
+.lead {
+	margin-bottom: 0.6em;
+	display: block;
+    font-size: 35px;
+    color: #161715;
+    text-align: left;
+}
+
+.list {
+	list-style-type: none;
+	font-family: "futura-pt";
+	font-size: 18px;
+	line-height: 24px;
+	font-weight: 800;
+	text-transform: uppercase;
+	color: #161715;
+	margin-bottom: 3em;
+
+	li {
+		margin-top: 1em;
+		text-align: left;
+	}
+}
+
+.iconsLarge {
+	color: #161715;
+	font-size: 35px;
+	text-align: left;
+	margin-top: 0.8em;
+
+	i {
+		margin-right: 25px;
+	}
+}
+
+.end {
+	align-self: flex-end;
+}
+
+
+/* STYLE DLA ZDJĘĆ -------------------------------------------------------------------------*/
+
+
+.photoTwoColums {
+	display: flex;
+	margin-bottom: 6em;
+
+	img {
+		width: 100%;
+		padding: 10px;
+	}
+}
+
+.photoTwoColumnsLeft {
+	width: 60%;
+}
+
+.photoTwoColumnsRight {
+	width: 40%
+}
+
+
+
+/* FORMULARZ---------------------------------------------------------------------------------- */
+
+
+.contactForm {
+	display: block;
+	text-align: left;
+	margin-top: 2em;
+
+	label {
+		color: #161715;
+		font-size: 18px;
+		font-weight: 800;
+		text-transform: uppercase;
+		margin-top: 1em;
+		margin-bottom: 1em;
+	}
+
+	input {
+		width: 80%;
+		height: 50px;
+		border: none;
+		margin-top: 1.5em;
+		margin-bottom: 1.5em;
+		opacity: 0.6;
+		box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+	}
+
+	::-webkit-input-placeholder { 
+		font-family: "nimbus-sans";
+ 	 	font-size: 18px;
+		font-weight: 400;
+		padding-left: 15px;
+	}
+
+	textarea {
+		
+		margin-top: 1em;
+		width: 80%;
+		height: 220px;
+		resize: none;
+		opacity: 0.6;
+		box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+		padding-top: 15px;
+		font-weight: 400;
+		border: none;
+			
+	}
+
+	.btnSend {
+		width: 80%;
+		font-family: "futura-pt", Arial, sans-serif;
+		display: block;
+		border: none;
+		height: 80px;
+		font-size: 18px;
+		font-weight: 800;
+		background: #FFF;
+		box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+		text-transform: uppercase;
+		color: #161715;
+		cursor: pointer;
+		margin-top: 3em;
+		letter-spacing: 0.05em;
+	}
+}
+
+input[type=text], select {
+	font-family: "nimbus-sans";
+	font-size: 18px;
+}
